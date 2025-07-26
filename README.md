@@ -24,16 +24,16 @@ Build a system that extracts a **structured outline (Title, H1, H2, H3 headings)
     { "level": "H3", "text": "History of AI", "page": 3 }
   ]
 }
-
+```
 Approach
 PDF Parsing
-
+```
 Use a PDF parsing library (e.g., PyMuPDF or pdfplumber) to extract text, fonts, and positions.
 
 Heading Detection
-
+```
 Identify headings based on:
-
+```
 Font size and style patterns
 
 Text positioning and whitespace analysis
@@ -47,9 +47,9 @@ Apply clustering of styles to determine levels: Title > H1 > H2 > H3.
 Output Generation
 
 Store the extracted structure in JSON format.
-
+```
 Constraints handled:
-
+```
 Offline execution (no internet)
 
 ≤10s runtime for 50-page PDFs
@@ -64,8 +64,9 @@ PyMuPDF (fitz) / pdfplumber
 json
 
 Docker (for containerization)
-
+```
 How to Build & Run
+```
 Build Docker Image
 bash
 Copy
@@ -79,7 +80,9 @@ docker run --rm \
   -v $(pwd)/input:/app/input \
   -v $(pwd)/output:/app/output \
   --network none pdf_outline_extractor:latest
+```
 Notes
+```
 All PDFs from /app/input will be processed and corresponding JSON files will be saved in /app/output.
 
 No internet access required.
